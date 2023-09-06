@@ -112,13 +112,14 @@ jobs:
       xcode: 14.0.1
     steps:
       - checkout
-      - run: mkdir .local
-      - run: mkdir -p workspace/ffmpeg_macos_intel_with_brew
-      - run: cd .local
-      - run: mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-      - run: alias brew=.local/homebrew/bin/brew
-      - run: brew install ffmpeg
-      - run: cp homebrew/lib/* ~/project/workspace/ffmpeg_macos_intel_with_brew/
+      - run: |
+          mkdir .local  
+          mkdir -p workspace/ffmpeg_macos_intel_with_brew
+          cd .local
+          mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+          alias brew=.local/homebrew/bin/brew
+          brew install ffmpeg
+          cp homebrew/lib/* ~/project/workspace/ffmpeg_macos_intel_with_brew/
       - persist_to_workspace:
           root: ~/project/
           paths:
