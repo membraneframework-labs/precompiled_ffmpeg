@@ -118,7 +118,7 @@ jobs:
       - run: mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
       - run: alias brew=.local/homebrew/bin/brew
       - run: brew install ffmpeg
-      - run: cp ./local/homebrew/lib/* ~/project/workspace/ffmpeg_macos_intel_with_brew/
+      - run: cp homebrew/lib/* ~/project/workspace/ffmpeg_macos_intel_with_brew/
       - persist_to_workspace:
           root: ~/project/
           paths:
