@@ -113,7 +113,7 @@ jobs:
     steps:
       - checkout
       - run: mkdir .local
-      - run: mkdir workspace/ffmpeg_macos_intel_with_brew
+      - run: mkdir -p workspace/ffmpeg_macos_intel_with_brew
       - run: cd .local
       - run: mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
       - run: alias brew=.local/homebrew/bin/brew
@@ -159,12 +159,12 @@ workflows:
   build:
     jobs:
       - build_macos_intel_with_brew
-      - build_macos_intel
-      - build_macos_arm
-      - build_linux
+      # - build_macos_intel
+      # - build_macos_arm
+      # - build_linux
       - publish:
           requires:
             - build_macos_intel_with_brew
-            - build_macos_intel
+            # - build_macos_intel
             # - build_macos_arm
-            - build_linux
+            # - build_linux
