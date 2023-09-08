@@ -118,6 +118,8 @@ jobs:
           cd ~/.local
           mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
           alias brew=~/.local/homebrew/bin/brew
+          echo dupa
+          alias brew
           brew install portaudio
           cp ~/.local/homebrew/lib/* ~/project/workspace/ffmpeg_macos_intel_with_brew/
       - persist_to_workspace:
